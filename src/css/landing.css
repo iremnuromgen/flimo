@@ -1,0 +1,23 @@
+body {
+    background-color: #F2F5F9;
+}
+
+.header {
+    height: 60px;
+
+    display: flex;
+    align-items: center;
+    padding-left: 100px;
+}
+
+.hero {
+    height: calc(100vh - 60px);
+}
+
+.how {
+    height: 70vh;
+}
+
+.logo {
+    height: 24px;
+}
