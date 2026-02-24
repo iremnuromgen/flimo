@@ -93,3 +93,7 @@ body {
     height: auto;
     display: block;
 }
+
+.how {
+    background-color: coral;
+}
