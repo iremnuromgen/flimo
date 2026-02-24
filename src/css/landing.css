@@ -134,7 +134,6 @@ body {
 }
 
 .feature-title {
-    margin-top: 20px;
     font-family: 'Fredoka', sans-serif;
     font-size: 18px;
     font-weight: 500;
@@ -144,6 +143,20 @@ body {
 .feature-text {
     margin-top: 12px;
     font-family: 'Comfortaa', sans-serif;
-    font-size: 14px;
+    font-size: 12px;
     color: #3D5E8C;
+}
+
+.feature-icon {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.feature-icon img{
+    width: 128px;
+    height: auto;
+    object-fit: contain;
+    display: block;
 }
