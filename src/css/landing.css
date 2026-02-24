@@ -82,6 +82,7 @@ body {
 }
 
 .hero-visual {
+    margin-bottom: 24px;
     display: flex;
     justify-content: center;
     overflow: hidden;
