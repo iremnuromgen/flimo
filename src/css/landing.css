@@ -99,7 +99,7 @@ body {
 }
 
 .how {
-    padding: 0 100px;
+    padding: 0 100px 24px 100px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -118,14 +118,13 @@ body {
 }
 
 .how-subtitle {
-    margin-top: 24px;
+    margin-top: 14px;
     font-family: 'Comfortaa', sans-serif;
     font-size: 14px;
     color: #3D5E8C;
 }
 
 .how-features {
-    margin-top: 24px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 40px;
