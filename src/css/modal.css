@@ -151,3 +151,36 @@
   font-size: 22px;
   font-weight: 600;
 }
+
+.words-area {
+    height: 220px;
+    background-color: violet;
+    border-radius: 14px;
+    border: 2px solid rgba(15, 28, 48, 0.06);
+    background: #F6F8FB;
+    overflow: auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.words-area.is-empty {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.words-empty-title {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #555D6D;
+}
+
+.words-empty-subtitle {
+    margin-top: 8px;
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 13px;
+    color: #8E9EB4;
+}
