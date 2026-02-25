@@ -21,14 +21,14 @@ body {
 .collections-panel {
     width: 35%;
     padding: 32px;
+
+    display: flex;
+    flex-direction: column;
 }
 
 .collections-header {
-
-    border-radius: 24px;
     display: flex;
     flex-direction: column;
-    gap: 16px;
 }
 
 /* .collections-logo {
@@ -40,12 +40,53 @@ body {
     font-family: 'Fredoka', sans-serif;
     font-size: 24px;
     font-weight: 600;
-    color: #555D6D;
+    color: #0F1C30;
 }
 
 .collections-subtitle {
+    margin-top: 8px;
     font-family: 'comfortaa', sans-serif;
     font-size: 12px;
+    color: #8E9EB4;
+}
+
+.collections-list {
+    margin-top: 8px;
+    flex: 1;
+    overflow-y: auto;
+
+    display: flex;
+    flex-direction: column;
+}
+
+/*Liste boşken*/
+.collections-list.is-empty {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/*Liste doluyken*/
+.collections-list:not(.is-empty) {
+    justify-content: flex-start;
+    align-items: stretch;
+}
+
+.empty-state {
+    max-width: 240px;
+}
+
+.empty-title {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #555D6D;
+}
+
+.empty-subtitle {
+    margin-top: 8px;
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 13px;
     color: #8E9EB4;
 }
 
