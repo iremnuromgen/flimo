@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./src/css/base.css">
     <link rel="stylesheet" href="./src/css/app.css">
+    <link rel="stylesheet" href="./src/css/modal.css">
     <title>Flimo App</title>
 </head>
 <body>
     <main class="app">
+        <!-- Collections Panel -->
         <section class="collections-panel">
             <div class="collections-header">
                 <!-- <img src="./assets/images/app-logo.png" alt="Flimo Logo" class="collections-logo"> -->
@@ -38,5 +40,29 @@
 
         <section class="practice-panel"></section>
     </main>
+
+    <!-- Modal -->
+     <div class="modal-overlay">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title">Create Collection</h3>
+                <button class="modal-close" type="button" aria-label="Close">
+                    <svg 
+                        xmlns="http://www.w3.org/2000/svg" 
+                        viewBox="0 0 24 24">
+                        <path d="M18 6 6 18"/>
+                        <path d="m6 6 12 12"/>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <label class="field">
+                    <span class="field-label">Collection name</span>
+                    <input class="field-input" type="text" placeholder="e.g. Food & Dining">
+                </label>
+            </div>
+        </div>
+     </div>
 </body>
 </html>

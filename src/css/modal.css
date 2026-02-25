@@ -1,0 +1,92 @@
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 28, 48, 0.35);
+    backdrop-filter: blur(6px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 48px;
+    z-index: 999;
+}
+
+.modal {
+    width: min(720px, 100%);
+    padding: 24px 32px;
+    background-color: #FFFFFF;
+    border-radius: 24px;
+    border: 2px solid rgba(15, 28, 48, 0.06);
+    box-shadow: 0 20px 60px rgba(15, 28, 48, 0.18);
+    overflow: hidden;
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(15, 28, 48, 0.06);
+}
+
+.modal-title {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: #0F1C30;
+}
+
+.modal-close {
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.modal-close svg{
+    width: 20px;
+    height: 20px;
+    color: #0F1C30;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.modal-body {
+    padding: 24px 0 24px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.field-label {
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 12px;
+    color: #555d6d;
+}
+
+.field-input {
+    height: 44px;
+    padding: 0 14px;
+    border-radius: 14px;
+    border: 2px solid rgba(15, 28, 48, 0.08);
+    background: #F6F8FB;
+    outline: none;
+
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 14px;
+    color: #0F1C30;
+}
+
+.field-input:focus {
+    border-color: rgba(15, 28, 48, 0.18);
+    background: #ffffff;
+}
