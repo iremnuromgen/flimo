@@ -16,21 +16,24 @@ body {
 
     border: 2px solid rgba(15, 28, 48, 0.06);
     box-shadow: 0 20px 40px rgba(15, 28, 48, 0.05);
+
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
 }
+
 
 .collections-panel {
     width: 35%;
-    padding: 32px;
-
-    display: flex;
-    flex-direction: column;
 
     position: relative;
 }
 
-.collections-header {
+.collections-header,
+.practice-header {
     display: flex;
     flex-direction: column;
+    gap: 8px;
 }
 
 /* .collections-logo {
@@ -38,19 +41,23 @@ body {
     height: auto;
 } */
 
-.collections-title {
+.collections-title,
+.practice-title {
     font-family: 'Fredoka', sans-serif;
     font-size: 24px;
     font-weight: 600;
     color: #0F1C30;
 }
 
-.collections-subtitle {
-    margin-top: 8px;
+.collections-subtitle,
+.practice-subtitle {
+    padding: 0 0 8px 0;
     font-family: 'Comfortaa', sans-serif;
     font-size: 12px;
     color: #8E9EB4;
+    border-bottom: 1px solid rgba(15, 28, 48, 0.06);
 }
+
 
 .collections-list {
     margin-top: 8px;
@@ -78,14 +85,16 @@ body {
     max-width: 240px;
 }
 
-.empty-title {
+.empty-title,
+.practice-empty-title {
     font-family: 'Fredoka', sans-serif;
     font-size: 16px;
     font-weight: 500;
     color: #555D6D;
 }
 
-.empty-subtitle {
+.empty-subtitle,
+.practice-empty-subtitle {
     margin-top: 8px;
     font-family: 'Comfortaa', sans-serif;
     font-size: 13px;
@@ -130,6 +139,22 @@ body {
     stroke-linejoin: round;
 }
 
+/* Practice Panel */
 .practice-panel {
     width: 65%;
+}
+
+.practice-body {
+  margin-top: 8px;
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.practice-empty {
+  text-align: center;
+  max-width: 360px;
 }

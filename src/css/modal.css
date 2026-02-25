@@ -216,3 +216,7 @@
     background: #0F1C30;
     color: #ffffff;
 }
+
+.modal-overlay.is-hidden {
+    display: none;
+}
