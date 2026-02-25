@@ -2,31 +2,11 @@ body {
     background-color: #F2F5F9;
 }
 
-/* .header {
-    height: 60px;
-
-    display: flex;
-    align-items: center;
-    padding-left: 100px;
-}
-
-.logo {
-    height: 24px;
-} */
-
 .app {
     height: 100vh;
     display: flex;
-    padding: 24px;
-    gap: 24px;
-}
-
-.collections-panel {
-    width: 35%;
-}
-
-.practice-panel {
-    width: 65%;
+    padding: 48px;
+    gap: 48px;
 }
 
 .collections-panel,
@@ -36,4 +16,39 @@ body {
 
     border: 2px solid rgba(15, 28, 48, 0.06);
     box-shadow: 0 20px 40px rgba(15, 28, 48, 0.05);
+}
+
+.collections-panel {
+    width: 35%;
+    padding: 32px;
+}
+
+.collections-header {
+
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* .collections-logo {
+    width: 48px;
+    height: auto;
+} */
+
+.collections-title {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: #555D6D;
+}
+
+.collections-subtitle {
+    font-family: 'comfortaa', sans-serif;
+    font-size: 12px;
+    color: #8E9EB4;
+}
+
+.practice-panel {
+    width: 65%;
 }
