@@ -1,11 +1,27 @@
 body {
-    background-color: #F2F5F9;
+  background: linear-gradient(
+    180deg,
+    #f2f5f9 0%,
+    #e9eff6 100%
+  );
+}
+
+.app-header {
+    height: 60px;
+
+    display: flex;
+    align-items: center;
+    padding-left: 48px;
+}
+
+.logo {
+    height: 24px;
 }
 
 .app {
-    height: 100vh;
+    height: calc(100vh - 60px);
     display: flex;
-    padding: 48px;
+    padding: 0 48px 48px 48px;
     gap: 48px;
 }
 
