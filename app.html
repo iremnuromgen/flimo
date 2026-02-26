@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./src/css/base.css">
-    <link rel="stylesheet" href="./src/css/app.css">
-    <link rel="stylesheet" href="./src/css/modal.css">
+    <link rel="stylesheet" href="./src/css/core/base.css">
+    <link rel="stylesheet" href="./src/css/pages/app.css">
+    <link rel="stylesheet" href="./src/css/components/modal.css">
     <title>Flimo App</title>
 </head>
 <body>
@@ -82,7 +82,7 @@
                 <div class="word-row">
                     <div class="word-field">
                         <span class="word-lang">From</span>
-                        <input class="word-input" type="text" placeholder="Type a word...">
+                        <input id="word-from-input" class="word-input" type="text" placeholder="Type a word...">
                     </div>
 
                     <span class="word-arrow">
@@ -97,13 +97,13 @@
 
                     <div class="word-field">
                         <span class="word-lang">To</span>
-                        <input class="word-input" type="text" placeholder="Translation...">
+                        <input id="word-to-input" class="word-input" type="text" placeholder="Translation...">
                     </div>
 
-                    <button class="word-add" type="button" aria-label="Add word">+</button>
+                    <button id="word-add-btn" class="word-add" type="button" aria-label="Add word">+</button>
                 </div>
 
-                <div class="words-area is-empty">
+                <div id="words-area-id" class="words-area is-empty">
                     <div class="words-empty">
                         <h3 class="words-empty-title">No words added yet</h3>
                         <p class="words-empty-subtitle">Add words using the fields above</p>
