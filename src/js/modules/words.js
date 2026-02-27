@@ -78,6 +78,49 @@ export function initAddWords() {
         editBtn.setAttribute("aria-label", "Edit");
         editBtn.appendChild(createPencilIcon());
 
+        editBtn.addEventListener("click", () => {
+            if (row.classList.contains("is-editing")) return;
+
+            row.classList.add("is-editing");
+
+            const currentFrom = fromEl.textContent;
+            const currentTo = toEl.textContent;
+
+            const fromInput = document.createElement("input");
+            fromInput.classList.add("word-item__input");
+            fromInput.type = "text";
+            fromInput.value = currentFrom;
+
+            const toInput = document.createElement("input");
+            toInput.classList.add("word-item__input");
+            toInput.type = "text";
+            toInput.value = currentTo;
+
+            const actions = document.createElement("div");
+            actions.classList.add("word-item__actions");
+
+            const cancelBtn = document.createElement("button");
+            cancelBtn.type = "button";
+            cancelBtn.classList.add("word-action-btn");
+            cancelBtn.textContent = "Cancel";
+
+            const saveBtn = document.createElement("button");
+            saveBtn.type = "button";
+            saveBtn.classList.add("word-action-btn", "word-action-btn--save");
+            saveBtn.textContent = "Save";
+
+            actions.appendChild(cancelBtn);
+            actions.appendChild(saveBtn);
+
+            row.replaceChild(fromInput, fromEl);
+            row.replaceChild(toInput, toEl);
+
+            iconsWrapper.style.display = "none";
+            row.appendChild(actions);
+
+            fromInput.focus();
+        });
+
         const deleteBtn = document.createElement("button");
         deleteBtn.type = "button";
         deleteBtn.classList.add("icon-btn");
