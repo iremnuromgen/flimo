@@ -11,6 +11,8 @@ export function initAddWords() {
     //Temporary List
     const tempWords = [];
 
+    const empty = wordsArea.querySelector(".words-empty");
+
     const addWord = () => {
         const from = wordFromInput.value.trim();
         const to = wordToInput.value.trim();
@@ -21,8 +23,9 @@ export function initAddWords() {
 
         wordsArea.classList.remove("is-empty");
 
-        const empty = wordsArea.querySelector(".words-empty");
-        if (empty) empty.remove();
+        if (empty) {
+            empty.style.display = "none";
+        }
 
         const row = createWordRow(from, to);
         wordsArea.appendChild(row);
@@ -80,6 +83,26 @@ export function initAddWords() {
         deleteBtn.classList.add("icon-btn");
         deleteBtn.setAttribute("aria-label", "Delete");
         deleteBtn.appendChild(createDeleteIcon());
+
+        deleteBtn.addEventListener("click", () => {
+            const index = tempWords.findIndex(
+                (w) => w.from === from && w.to === to
+            );
+
+            if (index !== -1) {
+                tempWords.splice(index, 1);
+            }
+
+            row.remove();
+
+            if (tempWords.length === 0) {
+                wordsArea.classList.add("is-empty");
+
+                if (empty) {
+                    empty.style.display = "";
+                }
+            }
+        });
 
         iconsWrapper.appendChild(editBtn);
         iconsWrapper.appendChild(deleteBtn);
