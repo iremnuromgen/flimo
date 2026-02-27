@@ -162,14 +162,17 @@
     overflow: auto;
 
     display: flex;
-    flex-direction: column;
-    gap: 12px;
 }
 
 .words-area.is-empty {
     align-items: center;
     justify-content: center;
     text-align: center;
+}
+
+.words-area:not(.is-empty) {
+  flex-direction: column;
+  gap: 12px;
 }
 
 .words-empty-title {
