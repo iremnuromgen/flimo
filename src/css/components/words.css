@@ -1,0 +1,70 @@
+.word-item {
+    display: grid;
+    grid-template-columns: 1fr 1px 1fr auto;
+    align-items: center;
+    gap: 16px;
+
+    padding: 14px 18px;
+    border-radius: 14px;
+
+    background-color: #FFFFFF;
+    border: 1px solid rgba(15, 28, 48, 0.08);
+
+    transition: all 0.2s ease;
+}
+
+.word-item:hover {
+  border-color: #eec0c0;
+  box-shadow: 0 6px 16px rgba(238, 192, 192, 0.35);
+}
+
+.word-item__from,
+.word-item__to {
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #0F1C30;
+}
+
+.word-item__divider {
+  width: 1px;
+  height: 24px;
+  background-color: rgba(15, 28, 48, 0.08);
+}
+
+.word-item__icons {
+  display: inline-flex;
+  gap: 10px;
+}
+
+.icon-btn {
+  width: 34px;
+  height: 34px;
+
+  border-radius: 10px;
+  border: 1px solid rgba(15, 28, 48, 0.08);
+  background-color: #ffffff;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.icon-btn:hover {
+  background-color: #F2F5F9;
+  border-color: rgba(15, 28, 48, 0.18);
+}
+
+.icon {
+  width: 18px;
+  height: 18px;
+
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
