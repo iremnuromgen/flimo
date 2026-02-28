@@ -1,6 +1,4 @@
-import { createSvgIcon } from "./svg.js";
-
-let overlay, titleEl, msgEl, okBtn, cancelBtn;
+let overlay, titleEl, msgEl, cancelBtn, continueBtn;
 
 function build() {
   overlay = document.createElement("div");
@@ -28,16 +26,16 @@ function build() {
   const footer = document.createElement("div");
   footer.className = "confirm-footer";
 
+  continueBtn = document.createElement("button");
+  continueBtn.type = "button";
+  continueBtn.className = "confirm-btn confirm-btn--cancel";
+
   cancelBtn = document.createElement("button");
   cancelBtn.type = "button";
-  cancelBtn.className = "confirm-btn confirm-btn--cancel";
+  cancelBtn.className = "confirm-btn confirm-btn--ok";
 
-  okBtn = document.createElement("button");
-  okBtn.type = "button";
-  okBtn.className = "confirm-btn confirm-btn--ok";
-
+  footer.appendChild(continueBtn);
   footer.appendChild(cancelBtn);
-  footer.appendChild(okBtn);
 
   modal.appendChild(header);
   modal.appendChild(body);
@@ -50,35 +48,35 @@ function build() {
 export function openConfirm({
   title = "Are you sure?",
   message = "Your changes will be lost.",
-  okText = "Cancel",
-  cancelText = "Continue",
+  cancelText = "Cancel",
+  continueText = "Continue",
 } = {}) {
   if (!overlay) build();
 
   titleEl.textContent = title;
   msgEl.textContent = message;
-  okBtn.textContent = okText;
   cancelBtn.textContent = cancelText;
+  continueBtn.textContent = continueText;
 
   overlay.classList.remove("is-hidden");
 
   return new Promise((resolve) => {
     const close = (val) => {
       overlay.classList.add("is-hidden");
-      okBtn.removeEventListener("click", onOk);
       cancelBtn.removeEventListener("click", onCancel);
+      continueBtn.removeEventListener("click", onContinue);
       overlay.removeEventListener("click", onOverlay);
       resolve(val);
     };
 
-    const onOk = () => close(true);
-    const onCancel = () => close(false);
+    const onCancel = () => close(true);
+    const onContinue = () => close(false);
     const onOverlay = (e) => {
       if (e.target === overlay) close(false);
     };
 
-    okBtn.addEventListener("click", onOk);
     cancelBtn.addEventListener("click", onCancel);
+    continueBtn.addEventListener("click", onContinue);
     overlay.addEventListener("click", onOverlay);
   });
 }

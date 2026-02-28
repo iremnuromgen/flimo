@@ -123,8 +123,8 @@ export function initAddWords() {
                 const ok = await openConfirm({
                     title: "Leave edit mode?",
                     message: "If you close now, your changes will not be saved.",
-                    okText: "Cancel",
-                    cancelText: "Continue",
+                    cancelText: "Cancel",
+                    continueText: "Continue",
                 });
 
                 if (!ok) return;
