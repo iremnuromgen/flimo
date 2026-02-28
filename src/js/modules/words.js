@@ -13,6 +13,12 @@ export function initAddWords() {
 
     const empty = wordsArea.querySelector(".words-empty");
 
+    const logTempWords = (label) => {
+        console.clear();
+        console.log(label);
+        console.table(tempWords);
+    };
+
     const addWord = () => {
         const from = wordFromInput.value.trim();
         const to = wordToInput.value.trim();
@@ -28,6 +34,8 @@ export function initAddWords() {
         tempWords.push(word);
 
         wordsArea.classList.remove("is-empty");
+
+        logTempWords("after add");
 
         if (empty) {
             empty.style.display = "none";
@@ -124,9 +132,11 @@ export function initAddWords() {
                 const index = tempWords.findIndex((w) => w.id === word.id);
 
                 if (index !== -1) {
-                tempWords[index].from = nextFrom;
-                tempWords[index].to = nextTo;
+                    tempWords[index].from = nextFrom;
+                    tempWords[index].to = nextTo;
                 }
+
+                logTempWords("after edit save");
 
                 const newFromEl = document.createElement("div");
                 newFromEl.classList.add("word-item__from");
@@ -169,8 +179,10 @@ export function initAddWords() {
             const index = tempWords.findIndex((w) => w.id === word.id);
 
             if (index !== -1) {
-            tempWords.splice(index, 1);
+                tempWords.splice(index, 1);
             }
+
+            logTempWords("after delete");
 
             row.remove();
 
