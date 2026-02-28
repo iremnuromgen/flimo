@@ -1,4 +1,5 @@
 import { createSvgIcon } from "./components/svg.js";
+import { openConfirm } from "./components/confirm.js";
 
 export function initAddWords() {
     const wordFromInput = document.getElementById("word-from-input");
@@ -117,6 +118,35 @@ export function initAddWords() {
             cancelBtn.type = "button";
             cancelBtn.classList.add("word-action-btn");
             cancelBtn.textContent = "Cancel";
+
+            cancelBtn.addEventListener("click", async () => {
+                const ok = await openConfirm({
+                    title: "Leave edit mode?",
+                    message: "If you close now, your changes will not be saved.",
+                    okText: "Cancel",
+                    cancelText: "Continue",
+                });
+
+                if (!ok) return;
+
+                const oldFromEl = document.createElement("div");
+                oldFromEl.classList.add("word-item__from");
+                oldFromEl.textContent = currentFrom;
+
+                const oldToEl = document.createElement("div");
+                oldToEl.classList.add("word-item__to");
+                oldToEl.textContent = currentTo;
+
+                row.replaceChild(oldFromEl, fromInput);
+                row.replaceChild(oldToEl, toInput);
+
+                fromEl = oldFromEl;
+                toEl = oldToEl;
+
+                row.classList.remove("is-editing");
+                iconsWrapper.style.display = "";
+                actions.remove();
+            });
 
             const saveBtn = document.createElement("button");
             saveBtn.type = "button";
