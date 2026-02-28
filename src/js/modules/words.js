@@ -19,7 +19,13 @@ export function initAddWords() {
 
         if(!from || !to) return;
 
-        tempWords.push({ from, to });
+        const word = {
+            id: Date.now() + Math.random(),
+            from,
+            to
+        };
+
+        tempWords.push(word);
 
         wordsArea.classList.remove("is-empty");
 
@@ -27,7 +33,7 @@ export function initAddWords() {
             empty.style.display = "none";
         }
 
-        const row = createWordRow(from, to);
+        const row = createWordRow(word);
         wordsArea.appendChild(row);
 
         wordFromInput.value = "";
@@ -54,20 +60,20 @@ export function initAddWords() {
         ]);
     }
 
-    function createWordRow(from, to) {
+    function createWordRow(word) {
         const row = document.createElement("div");
         row.classList.add("word-item");
 
-        const fromEl = document.createElement("div");
+        let fromEl = document.createElement("div");
         fromEl.classList.add("word-item__from");
-        fromEl.textContent = from;
+        fromEl.textContent = word.from;
 
         const divider = document.createElement("div");
         divider.classList.add("word-item__divider");
 
-        const toEl = document.createElement("div");
+        let toEl = document.createElement("div");
         toEl.classList.add("word-item__to");
-        toEl.textContent = to;
+        toEl.textContent = word.to;
 
         const iconsWrapper = document.createElement("div");
         iconsWrapper.classList.add("word-item__icons");
@@ -109,6 +115,38 @@ export function initAddWords() {
             saveBtn.classList.add("word-action-btn", "word-action-btn--save");
             saveBtn.textContent = "Save";
 
+            saveBtn.addEventListener("click", () => {
+                const nextFrom = fromInput.value.trim();
+                const nextTo = toInput.value.trim();
+
+                if (!nextFrom || !nextTo) return;
+
+                const index = tempWords.findIndex((w) => w.id === word.id);
+
+                if (index !== -1) {
+                tempWords[index].from = nextFrom;
+                tempWords[index].to = nextTo;
+                }
+
+                const newFromEl = document.createElement("div");
+                newFromEl.classList.add("word-item__from");
+                newFromEl.textContent = nextFrom;
+
+                const newToEl = document.createElement("div");
+                newToEl.classList.add("word-item__to");
+                newToEl.textContent = nextTo;
+
+                row.replaceChild(newFromEl, fromInput);
+                row.replaceChild(newToEl, toInput);
+
+                fromEl = newFromEl;
+                toEl = newToEl;
+
+                row.classList.remove("is-editing");
+                iconsWrapper.style.display = "";
+                actions.remove();
+            });
+
             actions.appendChild(cancelBtn);
             actions.appendChild(saveBtn);
 
@@ -128,12 +166,10 @@ export function initAddWords() {
         deleteBtn.appendChild(createDeleteIcon());
 
         deleteBtn.addEventListener("click", () => {
-            const index = tempWords.findIndex(
-                (w) => w.from === from && w.to === to
-            );
+            const index = tempWords.findIndex((w) => w.id === word.id);
 
             if (index !== -1) {
-                tempWords.splice(index, 1);
+            tempWords.splice(index, 1);
             }
 
             row.remove();
