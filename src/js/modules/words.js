@@ -251,9 +251,20 @@ export function initAddWords() {
     }
 
     const getDraftWords = () => draftWords.slice();
-    const clearDraftWords = () => {
+
+    const resetDraft = () => {
         draftWords.length = 0;
+
+        const rows = wordsArea.querySelectorAll(".word-item");
+        rows.forEach((r) => r.remove());
+
+        wordsArea.classList.add("is-empty");
+        if (empty) empty.style.display = "";
+
+        wordFromInput.value = "";
+        wordToInput.value = "";
+        wordFromInput.focus();
     };
 
-    return { getDraftWords, clearDraftWords };
+    return { getDraftWords, resetDraft };
 }
