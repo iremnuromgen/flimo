@@ -27,7 +27,7 @@ export function initAddWords() {
         if(!from || !to) return;
 
         const word = {
-            id: Date.now() + Math.random(),
+            id: crypto.randomUUID(),
             from,
             to
         };
@@ -214,7 +214,7 @@ export function initAddWords() {
             });
 
             if (!ok) return;
-            
+
             const index = tempWords.findIndex((w) => w.id === word.id);
 
             if (index !== -1) {
