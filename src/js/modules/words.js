@@ -205,7 +205,16 @@ export function initAddWords() {
         deleteBtn.setAttribute("aria-label", "Delete");
         deleteBtn.appendChild(createDeleteIcon());
 
-        deleteBtn.addEventListener("click", () => {
+        deleteBtn.addEventListener("click", async () => {
+            const ok = await openConfirm({
+                title: "Delete word?",
+                message: "This word will be permanently removed.",
+                cancelText: "Delete",
+                continueText: "Cancel",
+            });
+
+            if (!ok) return;
+            
             const index = tempWords.findIndex((w) => w.id === word.id);
 
             if (index !== -1) {
