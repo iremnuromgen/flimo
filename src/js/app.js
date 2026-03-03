@@ -3,5 +3,5 @@ import { initAddWords } from "./modules/words.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     initCreateCollectionModal();
-    initAddWords();
+    const wordsDraft = initAddWords();
 });

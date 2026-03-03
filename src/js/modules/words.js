@@ -7,17 +7,22 @@ export function initAddWords() {
     const wordAddBtn = document.getElementById("word-add-btn");
     const wordsArea = document.getElementById("words-area-id");
 
-    if(!wordFromInput || !wordToInput || !wordAddBtn || !wordsArea) return;
+    if(!wordFromInput || !wordToInput || !wordAddBtn || !wordsArea) {
+        return {
+            getDraftWords: () => [],
+            clearDraftWords: () => {},
+        };
+    }
 
-    //Temporary List
-    const tempWords = [];
+    //Draft list (modal içi geçici state)
+    const draftWords = [];
 
     const empty = wordsArea.querySelector(".words-empty");
 
-    const logTempWords = (label) => {
+    const logDraftWords = (label) => {
         console.clear();
         console.log(label);
-        console.table(tempWords);
+        console.table(draftWords);
     };
 
     const addWord = () => {
@@ -32,11 +37,11 @@ export function initAddWords() {
             to
         };
 
-        tempWords.push(word);
+        draftWords.push(word);
 
         wordsArea.classList.remove("is-empty");
 
-        logTempWords("after add");
+        logDraftWords("after add");
 
         if (empty) {
             empty.style.display = "none";
@@ -159,14 +164,14 @@ export function initAddWords() {
 
                 if (!nextFrom || !nextTo) return;
 
-                const index = tempWords.findIndex((w) => w.id === word.id);
+                const index = draftWords.findIndex((w) => w.id === word.id);
 
                 if (index !== -1) {
-                    tempWords[index].from = nextFrom;
-                    tempWords[index].to = nextTo;
+                    draftWords[index].from = nextFrom;
+                    draftWords[index].to = nextTo;
                 }
 
-                logTempWords("after edit save");
+                logDraftWords("after edit save");
 
                 const newFromEl = document.createElement("div");
                 newFromEl.classList.add("word-item__from");
@@ -215,17 +220,17 @@ export function initAddWords() {
 
             if (!ok) return;
 
-            const index = tempWords.findIndex((w) => w.id === word.id);
+            const index = draftWords.findIndex((w) => w.id === word.id);
 
             if (index !== -1) {
-                tempWords.splice(index, 1);
+                draftWords.splice(index, 1);
             }
 
-            logTempWords("after delete");
+            logDraftWords("after delete");
 
             row.remove();
 
-            if (tempWords.length === 0) {
+            if (draftWords.length === 0) {
                 wordsArea.classList.add("is-empty");
 
                 if (empty) {
@@ -244,4 +249,11 @@ export function initAddWords() {
 
         return row;
     }
+
+    const getDraftWords = () => draftWords.slice();
+    const clearDraftWords = () => {
+        draftWords.length = 0;
+    };
+
+    return { getDraftWords, clearDraftWords };
 }
