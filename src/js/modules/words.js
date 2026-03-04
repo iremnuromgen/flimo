@@ -10,7 +10,7 @@ export function initAddWords() {
     if(!wordFromInput || !wordToInput || !wordAddBtn || !wordsArea) {
         return {
             getDraftWords: () => [],
-            clearDraftWords: () => {},
+            resetDraft: () => {},
         };
     }
 
