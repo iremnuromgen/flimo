@@ -95,6 +95,7 @@ body {
 .collections-list:not(.is-empty) {
     justify-content: flex-start;
     align-items: stretch;
+    gap: 8px;
 }
 
 .empty-state {

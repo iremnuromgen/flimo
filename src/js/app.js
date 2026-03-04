@@ -1,9 +1,12 @@
 import { initCreateCollectionModal } from "./modules/modal.js";
 import { initAddWords } from "./modules/words.js";
 import { addCollection } from "./modules/storage.js";
+import { initCollectionsPanel, renderCollections } from "./modules/collections.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     initCreateCollectionModal();
+    initCollectionsPanel();
+
     const wordsDraft = initAddWords();
 
     const modal = document.getElementById("create-collection-modal");
@@ -20,6 +23,8 @@ document.addEventListener("DOMContentLoaded", () => {
         if (words.length === 0) return;
 
         addCollection({ name, words });
+
+        renderCollections();
 
         modal.classList.add("is-hidden");
         nameInput.value = "";

@@ -1,0 +1,62 @@
+.collection-item {
+  width: 100%;
+  border: 1px solid rgba(15, 28, 48, 0.08);
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 16px 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.collection-item:hover {
+  border-color: rgba(15, 28, 48, 0.18);
+  box-shadow: 0 5px 5px rgba(15, 28, 48, 0.08);
+}
+
+.collection-item__text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.collection-item__title {
+  font-family: "Fredoka", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #0f1c30;
+}
+
+.collection-item__meta {
+  margin-top: 6px;
+  font-family: "Comfortaa", sans-serif;
+  font-size: 12px;
+  color: #8e9eb4;
+  line-height: 1.2;
+}
+
+.collection-item__chevron {
+  width: 20px;
+  height: 20px;
+  color: #0f1c30;
+
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: all 0.2s ease;
+}
+
+.collection-item:hover .collection-item__chevron {
+  opacity: 1;
+  transform: translateX(0);
+}
